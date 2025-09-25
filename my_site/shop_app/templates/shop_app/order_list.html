@@ -1,0 +1,49 @@
+{% extends 'shop_app/base.html' %}
+
+{% block title %}
+    Orders list
+{% endblock %}
+
+{% block body %}
+    <h1>Orders List</h1>
+    {% if object_list %}
+        <table border="2">
+            <tr>
+                <th>Детали заказа</th>
+                <th>Имя</th>
+                <th>Адрес</th>
+                <th>Промокод</th>
+                <th>Продукция</th>
+                <th>Дата и время</th>
+            </tr>
+            {% for order in object_list %}
+
+                <tr>
+                    <td>
+                        <a href="{% url 'shop_app:order_detail' pk=order.id %}">
+                            Detail {{ order.id }}
+                        </a>
+                    </td>
+                    <td>{{ order.user }}</td>
+                    <td>{{ order.delivery_address }}</td>
+                    <td>{{ order.promocode }}</td>
+                    <td>
+                        <ul>
+                            {% for product in order.products.all %}
+                                <li>{{ product.name }} for {{ product.price }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>{{ order.created_at }}</td>
+                </tr>
+
+            {% endfor %}
+        </table>
+    {% else %}
+        <h3>No orders yet!</h3>
+    {% endif %}
+<div>
+    <a href="{% url 'shop_app:create_order' %}">Create a new order</a>
+</div>
+
+{% endblock %}
