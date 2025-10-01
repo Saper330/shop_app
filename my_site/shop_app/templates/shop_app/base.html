@@ -6,52 +6,49 @@
         {% block title %}
         {% endblock %}
     </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
+        h1{
+            text-align: center;
+        }
         .container{
             width: 1200px;
+            height: auto;
             margin: 0 auto;
         }
         .navbar{
             width: 100%;
         }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" 
-        crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" 
-        crossorigin="anonymous">
-    </script>
-</head>
+</head>  
 <body>
     <div class="container">
-    <div class="navbar">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Shop App</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/shop">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/shop/products">Продукция</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/shop/orders">Заказы</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button class="btn btn-outline-success" type="submit">Поиск</button>
-                </form>
+        <div class="navbar">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Shop App</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/shop">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/shop/products">Продукция</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/shop/orders">Заказы</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                        <button class="btn btn-outline-success" type="submit">Поиск</button>
+                    </form>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
     </div>
     </div>
     <div class="container">
@@ -59,14 +56,20 @@
         {% endblock %}
     </div>
     
+    
 
 
 
-<div>
-    Сегодня {% now "j F Y" %}
-</div>
-<div>
-    {% now 'H:i' %}
-</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
+<header>
+    <div class="container">
+        <div>
+        Сегодня {% now "j F Y" %}
+        </div>
+        <div>
+        {% now 'H:i' %}
+        </div>
+    </div>       
+</header>
 </html>

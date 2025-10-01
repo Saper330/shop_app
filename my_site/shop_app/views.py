@@ -2,16 +2,27 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.models import Group
 
 from shop_app.models import Product, Order
 from .shop_app_forms import OrderForm
+from django.views import View
+
+class ShopIndexViev(View):
+
+    def get( self, request: HttpRequest) -> HttpResponse:
+        context = {
+            'groups': Group.objects.all(),
+        }
+        return render(request, 'shop_app/shop-index.html', context=context)
+    
 
 
-def shop_index(request: HttpRequest):
-    context = {
-
-    }
-    return render(request, 'shop_app/shop-index.html', context=context)
+# def shop_groups(request: HttpRequest):
+#     context = {
+        
+#     }
+#     return render(request, 'shop_app/shop-index.html', context=context)
 
 
 class ProductListView(ListView):
@@ -91,4 +102,5 @@ class OrderDeleteView(DeleteView):
     template_name = "shop_app/order_confirm_delete.html"
     model = Order
     success_url = reverse_lazy("shop_app:orders_list")
+
 
